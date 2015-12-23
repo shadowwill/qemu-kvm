@@ -1,5 +1,5 @@
 ========================================
-title: Virtual Machine Dynamic Migration
+title: Virtual Machine Migration Strategy
 author: Li Ziyu, Wang Xiaoxi
 ========================================
 
