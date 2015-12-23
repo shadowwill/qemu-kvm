@@ -5,34 +5,26 @@ author: Li Ziyu, Wang Xiaoxi
 
 
 
-#####Experiment environment#####
-System: Linux 10.04LTS Desktop i386
-VM: qemu-kvm-1.2
-Hardware: intel-i5, 4GRAM
-
-
-
 #####Complementation#####
-1.Innner Qemu source code
-Here we mainly modified the memory info and qmp modules
-In qemu shell, we add two commands 'dirtyspeed' and 'ramsize'
-We modified the following source code to achieve that:
+1.Qemu source code modification
+1)To track memory dirtying rate and calculate general memory access pattern, we modified the following code files:
+arch_init.c
+memory.h
+memory.c
+exec-obsolete.h
+exec.c
 dump.c
+migration.c
+
+2)We also add qemu shell commands 'dirtyspeed' and 'ramsize' to enable easy tracking. We modified the following code files:
 hmp.h
 monitor.c
 hmp.c
-vl.c
 qmp.c
-migration.c
-memory.h
-memory.c
-kvm-all.c
-exec-obsolete.h
-exec.c
-arch_init.c
 
 
-2.Outter Monitor script
+
+2.Migration 
 The outter monitor is used to monitor the vm clusters' memory info.
 with this info, it can calculte and decide which candidate to migrate.
 We write the following scripts which can run as a daemon to achieve the goal.
