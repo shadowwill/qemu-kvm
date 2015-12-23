@@ -1,12 +1,14 @@
 ========================================
 title: Virtual Machine Migration Strategy
-author: Li Ziyu, Wang Xiaoxi
+author: Li Ziyu
 ========================================
 
 
 
 #####Complementation#####
 1.Qemu source code modification
+
+
 1)To track memory dirtying rate and calculate general memory access pattern, we modified the following code files:
 arch_init.c
 memory.h
